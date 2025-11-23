@@ -28,8 +28,10 @@ export default function LibraryPage() {
                 try {
                     const games = await fetchLibrary();
                     setOwnedGames(games);
-                } catch (error) {
-                    console.error("Failed to load library:", error);
+                } catch (error: any) {
+                    // Silently handle errors - authentication is already handled by useSession
+                    // If there's an error, the user will see the empty state
+                    console.log("Library fetch error (this is expected if not logged in):", error.message);
                 } finally {
                     setIsLoading(false);
                 }
