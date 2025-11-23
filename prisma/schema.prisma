@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  image     String?
+  password  String
+  isAdmin   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  reviews   Review[]
+  library   Game[]
+}
+
+model Game {
+  id            String   @id @default(cuid())
+  title         String
+  description   String   @db.Text
+  price         Float
+  originalPrice Float?
+  rating        Float    @default(0)
+  image         String
+  category      String
+  tags          String[] // Array of tags
+  isNew         Boolean  @default(false)
+  isTrending    Boolean  @default(false)
+  screenshots   String[] // Array of screenshot URLs
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  reviews       Review[]
+  owners        User[]
+
+  @@index([category])
+  @@index([isNew])
+  @@index([isTrending])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int
+  comment   String   @db.Text
+  avatar    String
+  date      String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  game      Game     @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  gameId    String
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([gameId])
+  @@index([userId])
+  @@index([approved])
+}
