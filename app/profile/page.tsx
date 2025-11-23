@@ -26,8 +26,11 @@ export default function ProfilePage() {
                 try {
                     const data = await fetchProfile();
                     setProfile(data);
-                } catch (error) {
-                    console.error("Failed to load profile:", error);
+                } catch (error: any) {
+                    console.log("Profile fetch error (session may be invalid):", error.message);
+                    // If profile fetch fails, the session is likely invalid (e.g. after DB reset)
+                    // Redirect to login to refresh session
+                    signOut({ callbackUrl: "/login" });
                 } finally {
                     setIsLoading(false);
                 }
