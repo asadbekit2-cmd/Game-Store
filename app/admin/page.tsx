@@ -19,29 +19,31 @@ export default function AdminDashboard() {
     useEffect(() => {
         const loadStats = async () => {
             try {
-                const [games, reviews] = await Promise.all([
+                const [gamesData, reviewsData] = await Promise.all([
                     fetchGames(),
-                    fetchReviews()
+                    fetchReviews().catch(() => []) // Gracefully handle reviews fetch failure
                 ]);
 
-                const totalGames = games.length;
-                const totalReviews = reviews.length;
-                const avgRating = games.length > 0
-                    ? (games.reduce((acc: number, game: any) => acc + (game.rating || 0), 0) / games.length).toFixed(1)
-                    : "0.0";
-
                 setStats({
-                    totalGames,
-                    totalReviews,
-                    avgRating,
-                    activeUsers: "1.2K"
+                    totalGames: gamesData.length,
+                    totalReviews: reviewsData.length,
+                    totalRevenue: gamesData.reduce((sum: number, game: any) => sum + (game.price || 0), 0),
+                    activeUsers: 0 // This would come from a real analytics API
                 });
             } catch (error) {
-                console.error("Failed to load stats:", error);
+                console.log("Admin stats loading (database may be empty):", error);
+                // Set default stats if there's an error
+                setStats({
+                    totalGames: 0,
+                    totalReviews: 0,
+                    totalRevenue: 0,
+                    activeUsers: 0
+                });
             } finally {
                 setIsLoading(false);
             }
         };
+
         loadStats();
     }, []);
 
