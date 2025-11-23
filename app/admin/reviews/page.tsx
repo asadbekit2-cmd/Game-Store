@@ -15,19 +15,21 @@ export default function ReviewModerationPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState("");
 
+    const loadReviews = async () => {
+        try {
+            setIsLoading(true);
+            const data = await fetchReviews();
+            setReviews(data);
+        } catch (error) {
+            console.log("Reviews fetch error (database may be empty):", error);
+            // Set empty array if there's an error
+            setReviews([]);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     useEffect(() => {
-        const loadReviews = async () => {
-            try {
-                const data = await fetchReviews();
-                setReviews(data);
-            } catch (error) {
-                console.log("Reviews fetch error (database may be empty):", error);
-                // Set empty array if there's an error
-                setReviews([]);
-            } finally {
-                setIsLoading(false);
-            }
-        };
         loadReviews();
     }, []);
 
