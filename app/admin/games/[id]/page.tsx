@@ -24,6 +24,7 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
         category: "",
         rating: "0",
         image: "",
+        screenshots: ["", "", ""], // Array for multiple screenshots
         tags: "",
         isNew: false,
         isTrending: false,
@@ -53,6 +54,7 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
                     category: game.category,
                     rating: game.rating.toString(),
                     image: game.image,
+                    screenshots: game.screenshots || ["", "", ""],
                     tags: game.tags.join(", "),
                     isNew: game.isNew,
                     isTrending: game.isTrending,
@@ -174,8 +176,8 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
                                         className="bg-black/40 border-white/10"
                                     />
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-muted-foreground">Image URL</label>
+                                <div className="space-y-2 md:col-span-2">
+                                    <label className="text-sm font-medium text-muted-foreground">Main Image URL</label>
                                     <Input
                                         required
                                         value={formData.image}
@@ -184,6 +186,53 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
                                         placeholder="https://..."
                                     />
                                 </div>
+                            </div>
+
+                            {/* Screenshots */}
+                            <div className="space-y-4">
+                                <label className="text-sm font-medium text-muted-foreground">Screenshot URLs (Gallery Images)</label>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {formData.screenshots.map((screenshot, index) => (
+                                        <div key={index} className="space-y-2">
+                                            <label className="text-xs text-muted-foreground">Screenshot {index + 1}</label>
+                                            <div className="flex gap-2">
+                                                <Input
+                                                    value={screenshot}
+                                                    onChange={(e) => {
+                                                        const newScreenshots = [...formData.screenshots];
+                                                        newScreenshots[index] = e.target.value;
+                                                        setFormData({ ...formData, screenshots: newScreenshots });
+                                                    }}
+                                                    className="bg-black/40 border-white/10"
+                                                    placeholder="https://..."
+                                                />
+                                                {formData.screenshots.length > 1 && (
+                                                    <Button
+                                                        type="button"
+                                                        variant="ghost"
+                                                        size="icon"
+                                                        onClick={() => {
+                                                            const newScreenshots = formData.screenshots.filter((_, i) => i !== index);
+                                                            setFormData({ ...formData, screenshots: newScreenshots });
+                                                        }}
+                                                        className="text-red-400 hover:text-red-300"
+                                                    >
+                                                        ✕
+                                                    </Button>
+                                                )}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => setFormData({ ...formData, screenshots: [...formData.screenshots, ""] })}
+                                    className="border-primary/30 hover:border-primary/50 text-primary"
+                                >
+                                    + Add Screenshot
+                                </Button>
                             </div>
 
                             {/* Tags */}

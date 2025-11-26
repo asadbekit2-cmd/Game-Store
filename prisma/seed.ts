@@ -61,7 +61,7 @@ async function main() {
             price: 59.99,
             originalPrice: 79.99,
             rating: 4.8,
-            image: "/images/games/cyberpunk-glava.jpg",
+            image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2070",
             category: "Action",
             tags: ["Cyberpunk", "Open World", "RPG"],
             isNew: true,

@@ -67,6 +67,7 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
                 rating: parseFloat(rating),
                 image,
                 tags: tags.split(",").map((t: string) => t.trim()),
+                screenshots: body.screenshots || [],
                 isNew,
                 isTrending,
             },
