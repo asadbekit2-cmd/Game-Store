@@ -1,0 +1,247 @@
+Albatta, bro, hammasini silliq, toza qilib o‘zbekchaga ko‘chirib beraman. Mana tayyor USABILITY TESTING hujjati — o‘zbek tilida:
+
+---
+
+# **FOYDALANUVCHANLIK (USABILITY) TESTI — O‘YIN DO‘KONI**
+
+## **TEST SESSIYASI MA’LUMOTLARI**
+
+Ishtirokchi ID: _______
+Sana: _______
+Vaqt: _______
+Facilitator: _______
+
+## **TEST OLDI YO‘RIQNOMASI**
+
+□ Ishtirokchini kutib olish va test maqsadini tushuntirish
+□ Bu yerda ishtirokchini emas, saytni sinashimizni aytish
+□ “Ovoz chiqarib o‘ylash” metodini tushuntirish
+□ Yozib olishga rozilik olish (agar kerak bo‘lsa)
+□ Boshlashdan oldin savollarga javob berish
+
+---
+
+# **TASK 1: BIRINCHI TAASSUROT & HOMEPAGE NAVIGATSIYASI**
+
+□ Ishtirokchidan bosh sahifadagi birinchi taassuroti haqida so‘rash
+□ Sayt nima uchun mo‘ljallangan deb o‘ylashi haqida so‘rash
+□ Bu yerda qanday amallarni bajarish mumkinligini so‘rash
+□ Kuzatish: Asosiy navigatsiyani topa oladimi?
+□ Kuzatish: Bo‘limlarning maqsadini tushunadimi?
+
+**Muvaffaqiyat mezonlari:**
+
+* Sayt o‘yin do‘koni ekanini tushunishi
+* 10 soniya ichida asosiy navigatsiyani topishi
+* Tizim tuzilmasi mantiqiy tuyulishi
+
+---
+
+# **TASK 2: O‘YINLARNI KO‘RISH & QIDIRISH**
+
+**Vaziyat:** “Dam olish kunlari o‘ynash uchun action janridagi o‘yin izlayapsiz.”
+
+□ Ishtirokchidan action o‘yinlarni topishni so‘rash
+□ Kuzatish: Qidiruvni ishlatadimi yoki kategoriyalardan foydalanadimi?
+□ Kuzatish: Filtrlarni oson qo‘llay oladimi?
+□ Narx bo‘yicha saralashni bajarishini so‘rash (agar mavjud bo‘lsa)
+□ Maxsus o‘yin topishni so‘rash (masalan: “Cyberpunk 2077 ni toping”)
+
+**Muvaffaqiyat mezonlari:**
+
+* 2 daqiqa ichida vazifani bajarishi
+* Qidiruv/filtrni adashmay ishlatishi
+* Maxsus o‘yinni topa olishi
+
+---
+
+# **TASK 3: O‘YIN DETALLARINI KO‘RISH**
+
+**Vaziyat:** “Sotib olishdan oldin bir o‘yin haqida ko‘proq ma’lumot bilmoqchisiz.”
+
+□ Istagan o‘yinni tanlab, detallarga kirishni so‘rash
+□ Qanday ma’lumotlar borligini tasvirlab berishini so‘rash
+□ Screenshotlar/video borligini tekshirtirish
+□ Foydalanuvchi sharhlarini topa oladimi?
+□ Kuzatish: Narx, janr, platforma kabi ma’lumotlarni topa oladimi?
+
+**Muvaffaqiyat mezonlari:**
+
+* Asosiy ma’lumotlarni topishi (narx, tavsif, screenshotlar)
+* Bir nechta screenshotlarni ko‘ra olishi
+* Sharhlarni qanday o‘qishni tushunishi
+
+---
+
+# **TASK 4: RO‘YXATDAN O‘TISH & KIRISH**
+
+**Vaziyat:** “O‘yinlarni sotib olish uchun akkaunt yaratmoqchisiz.”
+
+□ Ro‘yxatdan o‘tish sahifasini topishni so‘rash
+□ Kuzatish: Formani tushunadimi?
+□ Yaratilgan login-parol bilan kirishni so‘rash
+□ Kuzatish: Kirganligini anglata oladimi?
+
+**Muvaffaqiyat mezonlari:**
+
+* 3 daqiqa ichida ro‘yxatdan o‘tishi
+* Kerakli maydonlarni adashmay to‘ldirish
+* Muvaffaqiyatli login qilishi
+* Kirgan holatini taniydigan bo‘lishi
+
+---
+
+# **TASK 5: O‘YINNI KORSINKAGA QO‘SHISH / KUTUBXONAGA SAQLASH**
+
+**Vaziyat:** “O‘yin sotib olishga qaror qildingiz.”
+
+□ O‘yinni savatga qo‘shishni so‘rash
+□ Kuzatish: “Add to Cart” yoki “Purchase” tugmasini topa oladimi?
+□ Savatini yoki kutubxonasini ochishni so‘rash
+□ Yana bir o‘yin qo‘shishni so‘rash
+□ Istalsa — bir o‘yinni olib tashlash
+
+**Muvaffaqiyat mezonlari:**
+
+* 30 soniya ichida o‘yin qo‘shishi
+* Savat/kutubxonaga oson kirishi
+* Ichidagi o‘yinlarni tushunishi
+
+---
+
+# **TASK 6: CHECKOUT JARAYONI (agar mavjud bo‘lsa)**
+
+**Vaziyat:** “Sotib olishni yakunlashga tayyorsiz.”
+
+□ Checkout sahifasiga o‘tishni so‘rash
+□ Kuzatish: Jarayon tushunarli emasmi?
+□ Buyurtmani ko‘rib chiqishni so‘rash
+□ Umumiy summa, to‘lov turlari ko‘rinadimi?
+□ To‘lovni amalga oshirishdan oldin to‘xtatish
+
+**Muvaffaqiyat mezonlari:**
+
+* Checkout ga adashmay kirishi
+* Buyurtma tafsilotlarini tushunishi
+* To‘lov variantlarini aniq ko‘rishi
+
+---
+
+# **TASK 7: PROFIL & KUTUBXONAGA KIRISH**
+
+**Vaziyat:** “Sotib olingan o‘yinlaringizni ko‘rmoqchisiz.”
+
+□ Profil/kutubxona sahifasini topishni so‘rash
+□ Kuzatish: Havolani oson topadimi?
+□ Ko‘rganlarini tasvirlab berishi
+□ Aniq bir sotib olingan o‘yinni topishi
+
+**Muvaffaqiyat mezonlari:**
+
+* 30 soniya ichida profil/kutubxonani topishi
+* Kutubxona tarkibini tushunishi
+* Sotib olingan o‘yinni aniqlashi
+
+---
+
+# **TASK 8: ADMIN PANEL (adminlar uchun)**
+
+**Vaziyat:** “Admin sifatida yangi o‘yin qo‘shmoqchisiz.”
+
+□ Admin panelga kirishni so‘rash
+□ Yangi o‘yin qo‘shishni so‘rash
+□ Kuzatish: Forma intuitivmi?
+□ Screenshot yuklashni so‘rash
+□ Mavjud o‘yinni tahrirlashni so‘rash
+
+**Muvaffaqiyat mezonlari:**
+
+* Admin panelni oson topishi
+* 5 daqiqa ichida yangi o‘yin qo‘shishi
+* Bir nechta screenshot yuklashi
+* O‘yinni tahrir qila olishi
+
+---
+
+# **TASK 9: MOBIL VERSIYA TESTI (agar mobil bo‘lsa)**
+
+□ Mobil qurilmada asosiy vazifalarni bajarishni so‘rash
+□ Navigatsiya qulayligini kuzatish
+□ Tugmalar bosilish qulayligini kuzatish
+□ Matnni kattalashtirmasdan o‘qiy oladimi?
+
+**Muvaffaqiyat mezonlari:**
+
+* Barcha funksiyalar mobilga mos
+* Gorizontal skroll talab qilinmasligi
+* Tugmalar yetarlicha katta bo‘lishi
+
+---
+
+# **TASK 10: UMUMIY NAVIGATSIYA & YO‘NALISH TOPISH**
+
+□ Istalgan joydan bosh sahifaga qaytishni so‘rash
+□ Turli bo‘limlarga o‘tishni so‘rash
+□ Breadcrumb (agar bo‘lsa) tushunadimi?
+□ Log out qilishni so‘rash
+
+**Muvaffaqiyat mezonlari:**
+
+* Bosh sahifaga oson qaytishi
+* Sayt tuzilmasini tushunishi
+* Muvaffaqiyatli chiqib ketishi
+
+---
+
+# **TESTDAN KEYINGI SAVOLNOMA**
+
+□ Umuman olganda saytni ishlatish osonmi? (1–5)
+□ Saytda eng yoqqan narsa
+□ Eng yoqmagan narsa
+□ Adashtirgan yoki tushunarsiz joylar
+□ O‘zgartirish bo‘yicha takliflar
+□ Bu saytdan o‘yin sotib olarmidingiz? Nima uchun?
+□ Qo‘shimcha fikrlar
+
+---
+
+# **KUZATUV & YOZUVLAR**
+
+Vazifa bajarish darajasi: ___ / 10
+
+**Jiddiy muammolar:**
+
+---
+
+---
+
+**Kichik muammolar:**
+
+---
+
+---
+
+**Ijobiy fikrlar:**
+
+---
+
+---
+
+**Tavsiyalar:**
+
+---
+
+---
+
+---
+
+# **SESSIYA YAKUNI**
+
+□ Ishtirokchiga vaqt ajratgani uchun rahmat aytish
+□ To‘lov/bonus berish (agar bo‘lsa)
+□ Yozuv va qaydlarni saqlash
+□ Natijalarni yig‘ish va tahlil qilish
+
+---
+
+Bro, xohlasang PDF qilib ham beraman, yoki tayyor template ko‘rinishida Google Docs formatida chiqarib beraman.
