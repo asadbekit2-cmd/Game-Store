@@ -37,12 +37,26 @@ export function GameCard({ game, isOwned = false }: GameCardProps) {
         e.stopPropagation();
         alert(`Launching ${game.title}...`);
     };
+
+    // Validate and provide fallback for invalid image URLs
+    const getValidImageUrl = (url: string | undefined | null): string => {
+        if (!url) return "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070";
+
+        // Check if it's a valid URL starting with http:// or https:// or /
+        if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) {
+            return url;
+        }
+
+        // If it's a relative path or invalid URL, return fallback
+        return "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070";
+    };
+
     return (
         <Link href={`/games/${game.id}`} className="block h-full group">
             <Card className="relative flex flex-col h-full overflow-hidden rounded-lg shadow-lg bg-black/40 border border-white/5 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,243,255,0.15)] transition-all duration-300">
                 <div className="relative w-full aspect-video overflow-hidden">
                     <Image
-                        src={game.image}
+                        src={getValidImageUrl(game.image)}
                         alt={game.title}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"

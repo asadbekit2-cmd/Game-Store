@@ -57,10 +57,18 @@ export default function GameDetailsPage({ params }: { params: Promise<{ id: stri
             setIsOwned(true);
         } catch (error) {
             console.error("Failed to add to library:", error);
-            alert("Failed to add game to library. Please try again.");
+            const errorMessage = error instanceof Error ? error.message : "Failed to add game to library";
+            alert(errorMessage);
         } finally {
             setIsAdding(false);
         }
+    };
+
+    // Validate and provide fallback for invalid image URLs
+    const getValidImageUrl = (url: string | undefined | null): string => {
+        if (!url) return "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070";
+        if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) return url;
+        return "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070";
     };
 
     if (isLoading) {
@@ -91,7 +99,7 @@ export default function GameDetailsPage({ params }: { params: Promise<{ id: stri
             <div className="relative h-[60vh] w-full overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
                 <img
-                    src={game.image}
+                    src={getValidImageUrl(game.image)}
                     alt={game.title}
                     className="w-full h-full object-cover"
                 />
@@ -195,7 +203,7 @@ export default function GameDetailsPage({ params }: { params: Promise<{ id: stri
                             </div>
                         </div>
 
-                        {isOwned && <DownloadOptions />}
+                        {isOwned && <DownloadOptions game={game} />}
 
                         <Reviews
                             reviews={game.reviews || []}

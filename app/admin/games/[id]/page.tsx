@@ -28,6 +28,9 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
         tags: "",
         isNew: false,
         isTrending: false,
+        magnetLink: "",
+        torrentLink: "",
+        directDownloadLink: "",
     });
 
     useEffect(() => {
@@ -58,6 +61,9 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
                     tags: game.tags.join(", "),
                     isNew: game.isNew,
                     isTrending: game.isTrending,
+                    magnetLink: game.magnetLink || "",
+                    torrentLink: game.torrentLink || "",
+                    directDownloadLink: game.directDownloadLink || "",
                 });
             }
         } catch (error) {
@@ -80,11 +86,10 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
 
             if (gameId) {
                 await updateGame(gameId, data);
-                alert("Game updated successfully!");
             } else {
                 await createGame(data);
-                alert("Game created successfully!");
             }
+            alert(gameId ? "Game updated successfully!" : "Game created successfully!");
             router.push("/admin/games");
         } catch (error) {
             console.error("Failed to save game:", error);
@@ -177,13 +182,15 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
                                     />
                                 </div>
                                 <div className="space-y-2 md:col-span-2">
-                                    <label className="text-sm font-medium text-muted-foreground">Main Image URL</label>
+                                    <label className="text-sm font-medium text-muted-foreground">Main Image URL or Local Path</label>
                                     <Input
                                         required
+                                        type="text"
                                         value={formData.image}
                                         onChange={(e) => setFormData({ ...formData, image: e.target.value })}
                                         className="bg-black/40 border-white/10"
-                                        placeholder="https://..."
+                                        placeholder="https://... or /images/games/..."
+                                        title="Enter a valid URL (https://) or local path (/images/...)"
                                     />
                                 </div>
                             </div>
@@ -204,7 +211,7 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
                                                         setFormData({ ...formData, screenshots: newScreenshots });
                                                     }}
                                                     className="bg-black/40 border-white/10"
-                                                    placeholder="https://..."
+                                                    placeholder="https://... or /images/..."
                                                 />
                                                 {formData.screenshots.length > 1 && (
                                                     <Button
@@ -244,6 +251,51 @@ export default function GameEditorPage({ params }: { params: Promise<{ id: strin
                                     className="bg-black/40 border-white/10"
                                     placeholder="Cyberpunk, Open World, Multiplayer..."
                                 />
+                            </div>
+
+                            {/* Download Links */}
+                            <div className="space-y-4 pt-6 border-t border-white/10">
+                                <h3 className="text-lg font-bold font-orbitron text-white flex items-center gap-2">
+                                    Download Configuration
+                                </h3>
+                                <div className="grid grid-cols-1 gap-4">
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-muted-foreground">Magnet Link (Optional)</label>
+                                        <div className="flex gap-2">
+                                            <div className="bg-white/5 border border-white/10 rounded px-3 py-2 flex items-center text-muted-foreground text-sm">🧲</div>
+                                            <Input
+                                                value={formData.magnetLink}
+                                                onChange={(e) => setFormData({ ...formData, magnetLink: e.target.value })}
+                                                className="bg-black/40 border-white/10 font-mono text-xs"
+                                                placeholder="magnet:?xt=urn:btih:..."
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-muted-foreground">Torrent File URL (Optional)</label>
+                                        <div className="flex gap-2">
+                                            <div className="bg-white/5 border border-white/10 rounded px-3 py-2 flex items-center text-muted-foreground text-sm">📥</div>
+                                            <Input
+                                                value={formData.torrentLink}
+                                                onChange={(e) => setFormData({ ...formData, torrentLink: e.target.value })}
+                                                className="bg-black/40 border-white/10 font-mono text-xs"
+                                                placeholder="https://example.com/game.torrent"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-muted-foreground">Direct Download URL (Optional)</label>
+                                        <div className="flex gap-2">
+                                            <div className="bg-white/5 border border-white/10 rounded px-3 py-2 flex items-center text-muted-foreground text-sm">☁️</div>
+                                            <Input
+                                                value={formData.directDownloadLink}
+                                                onChange={(e) => setFormData({ ...formData, directDownloadLink: e.target.value })}
+                                                className="bg-black/40 border-white/10 font-mono text-xs"
+                                                placeholder="https://drive.google.com/..."
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Description */}

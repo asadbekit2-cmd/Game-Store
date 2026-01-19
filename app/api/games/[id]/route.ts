@@ -17,7 +17,6 @@ export async function GET(
                         user: {
                             select: {
                                 name: true,
-                                // In a real app, you might want to include avatar here if it was on the user model
                             }
                         }
                     },
@@ -54,7 +53,12 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
 
         const { id } = await params;
         const body = await request.json();
-        const { title, description, price, originalPrice, category, rating, image, tags, isNew, isTrending } = body;
+        const { title, description, price, originalPrice, category, rating, image, tags, isNew, isTrending, magnetLink, torrentLink, directDownloadLink } = body;
+
+        // Safely handle tags - if it's a string, split it; if it's already an array, use it; otherwise empty array
+        const processedTags = typeof tags === 'string'
+            ? tags.split(",").map((t: string) => t.trim()).filter(Boolean)
+            : Array.isArray(tags) ? tags : [];
 
         const game = await prisma.game.update({
             where: { id },
@@ -66,16 +70,23 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
                 category,
                 rating: parseFloat(rating),
                 image,
-                tags: tags.split(",").map((t: string) => t.trim()),
+                tags: processedTags,
                 screenshots: body.screenshots || [],
                 isNew,
                 isTrending,
-            },
+                magnetLink: magnetLink || null,
+                torrentLink: torrentLink || null,
+                directDownloadLink: directDownloadLink || null,
+            } as any,
         });
 
         return NextResponse.json(game);
     } catch (error) {
-        return NextResponse.json({ error: "Failed to update game" }, { status: 500 });
+        console.error("Error updating game:", error);
+        return NextResponse.json(
+            { error: "Failed to update game", details: error instanceof Error ? error.message : String(error) },
+            { status: 500 }
+        );
     }
 }
 

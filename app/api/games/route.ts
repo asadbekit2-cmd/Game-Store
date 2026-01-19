@@ -65,9 +65,9 @@ export async function POST(request: Request) {
         }
 
         const body = await request.json();
-        const { title, description, price, originalPrice, category, rating, image, tags, isNew, isTrending } = body;
+        const { title, description, price, originalPrice, category, rating, image, tags, isNew, isTrending, magnetLink, torrentLink, directDownloadLink } = body;
 
-        // Basic validation (updated to use destructured variables)
+        // Basic validation
         if (!title || !price || !category) {
             return NextResponse.json(
                 { error: "Missing required fields" },
@@ -75,27 +75,35 @@ export async function POST(request: Request) {
             );
         }
 
+        // Safely handle tags - if it's a string, split it; if it's already an array, use it; otherwise empty array
+        const processedTags = typeof tags === 'string'
+            ? tags.split(",").map((t: string) => t.trim()).filter(Boolean)
+            : Array.isArray(tags) ? tags : [];
+
         const game = await prisma.game.create({
             data: {
                 title,
-                description: description || "", // Keep default for description if not provided
+                description: description || "",
                 price: parseFloat(price),
                 originalPrice: originalPrice ? parseFloat(originalPrice) : null,
                 category,
-                rating: parseFloat(rating) || 0, // Keep default for rating if not provided
-                image: image || "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070", // Keep default image if not provided
-                tags: tags ? tags.split(",").map((t: string) => t.trim()) : [], // Handle tags if not provided
-                isNew: isNew || false, // Keep default for isNew if not provided
-                isTrending: isTrending || false, // Keep default for isTrending if not provided
-                screenshots: body.screenshots || [], // Keep screenshots as it was
-            },
+                rating: parseFloat(rating) || 0,
+                image: image || "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070",
+                tags: processedTags,
+                isNew: isNew || false,
+                isTrending: isTrending || false,
+                screenshots: body.screenshots || [],
+                magnetLink: magnetLink || null,
+                torrentLink: torrentLink || null,
+                directDownloadLink: directDownloadLink || null,
+            } as any,
         });
 
         return NextResponse.json(game, { status: 201 });
     } catch (error) {
         console.error("Error creating game:", error);
         return NextResponse.json(
-            { error: "Failed to create game" },
+            { error: "Failed to create game", details: error instanceof Error ? error.message : String(error) },
             { status: 500 }
         );
     }

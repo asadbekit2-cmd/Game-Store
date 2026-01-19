@@ -112,7 +112,7 @@ export default function GamesManagementPage() {
                                                 <td className="p-4">
                                                     <div className="flex items-center gap-3">
                                                         <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center overflow-hidden">
-                                                            {game.image ? (
+                                                            {game.image && (game.image.startsWith('http://') || game.image.startsWith('https://') || game.image.startsWith('/')) ? (
                                                                 <img src={game.image} alt={game.title} className="w-full h-full object-cover" />
                                                             ) : (
                                                                 <span className="text-xs font-bold text-primary">{game.title.substring(0, 2)}</span>

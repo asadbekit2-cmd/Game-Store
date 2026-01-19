@@ -35,6 +35,9 @@ model Game {
   isNew         Boolean  @default(false)
   isTrending    Boolean  @default(false)
   screenshots   String[] // Array of screenshot URLs
+  magnetLink    String?
+  torrentLink   String?
+  directDownloadLink String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   reviews       Review[]

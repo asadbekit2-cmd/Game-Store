@@ -39,7 +39,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white pb-20">
-      <HeroSection />
+      <HeroSection games={trendingGames} />
 
       <div className="container mx-auto px-4 space-y-20 py-10 relative z-10">
         <FeaturedSection title="Trending Now" games={trendingGames} />

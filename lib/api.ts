@@ -20,7 +20,9 @@ export async function addToLibrary(gameId: string) {
     });
 
     if (!response.ok) {
-        throw new Error("Failed to add to library");
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Failed to add to library:", response.status, errorData);
+        throw new Error(errorData.error || "Failed to add to library");
     }
 
     return response.json();
@@ -68,7 +70,11 @@ export async function createGame(data: any) {
         body: JSON.stringify(data),
     });
 
-    if (!res.ok) throw new Error("Failed to create game");
+    if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        console.error("Failed to create game:", res.status, errorData);
+        throw new Error(errorData.error || "Failed to create game");
+    }
     return res.json();
 }
 
@@ -79,7 +85,11 @@ export async function updateGame(id: string, data: any) {
         body: JSON.stringify(data),
     });
 
-    if (!res.ok) throw new Error("Failed to update game");
+    if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        console.error("Failed to update game:", res.status, errorData);
+        throw new Error(errorData.error || "Failed to update game");
+    }
     return res.json();
 }
 

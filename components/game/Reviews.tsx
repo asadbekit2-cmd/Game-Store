@@ -122,14 +122,18 @@ export function Reviews({ reviews: initialReviews }: ReviewsProps) {
                                 <div className="relative h-10 w-10 overflow-hidden rounded-full border border-white/10">
                                     <Image
                                         src={review.avatar}
-                                        alt={review.user}
+                                        alt={typeof review.user === 'object' && review.user !== null ? (review.user as any).name || 'Anonymous' : String(review.user)}
                                         fill
                                         className="object-cover"
                                     />
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex items-center justify-between">
-                                        <h4 className="font-bold text-white text-sm">{review.user}</h4>
+                                        <h4 className="font-bold text-white text-sm">
+                                            {typeof review.user === 'object' && review.user !== null
+                                                ? (review.user as any).name || 'Anonymous'
+                                                : String(review.user)}
+                                        </h4>
                                         <span className="text-xs text-muted-foreground">{review.date}</span>
                                     </div>
                                     <div className="flex items-center gap-0.5 mt-1">

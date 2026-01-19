@@ -69,7 +69,7 @@ async function main() {
             screenshots: [
                 "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2070",
                 "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=2071"
-            ]
+            ],
         },
         {
             title: "Cyber Soul",
@@ -83,7 +83,7 @@ async function main() {
             isTrending: true,
             screenshots: [
                 "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=2065"
-            ]
+            ],
         },
         {
             title: "Data Heist 2099",
@@ -97,7 +97,7 @@ async function main() {
             isTrending: false,
             screenshots: [
                 "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070"
-            ]
+            ],
         },
         {
             title: "Neural Warfare",
@@ -109,7 +109,7 @@ async function main() {
             tags: ["Tactical", "Sci-Fi", "Turn-Based"],
             isNew: true,
             isTrending: false,
-            screenshots: []
+            screenshots: [],
         },
         {
             title: "Mech Warrior: Arena",
@@ -124,7 +124,7 @@ async function main() {
             screenshots: [
                 "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=2070",
                 "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&q=80&w=2070"
-            ]
+            ],
         }
     ];
 
